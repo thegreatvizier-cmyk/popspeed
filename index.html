@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Popspeed — Coming soon</title>
+  <meta name="description" content="A new home for pop and rock — interviews, charts, reviews and playlists. Launching Autumn 2026.">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Popspeed — Coming soon">
+  <meta property="og:description" content="A new home for pop and rock — interviews, charts, reviews and playlists. Launching Autumn 2026.">
+  <meta property="og:url" content="https://popspeed.co.uk/">
+  <meta property="og:image" content="https://popspeed.co.uk/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Popspeed — Coming soon">
+  <meta name="twitter:description" content="A new home for pop and rock — interviews, charts, reviews and playlists.">
+  <meta name="twitter:image" content="https://popspeed.co.uk/og-image.png">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://popspeed.co.uk/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --accent: #FF5400; }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    ::selection { background: #111; color: #fff; }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.005em;
+    }
+
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+    /* top strip */
+    .strip {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 32px;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: .04em;
+      color: #8a8a8a;
+      text-transform: uppercase;
+      border-bottom: 1px solid #e6e4df;
+    }
+
+    /* center */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(56px, 13vw, 180px);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: .86;
+      margin: 20px 0 0;
+    }
+
+    .dot { color: var(--accent); }
+
+    .tagline {
+      font-size: clamp(20px, 2.6vw, 30px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #444;
+      max-width: 24ch;
+      margin: 34px 0 0;
+      text-wrap: balance;
+    }
+
+    /* email capture */
+    .capture { margin: 48px 0 0; max-width: 520px; }
+
+    .capture-label {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      color: #8a8a8a;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #111;
+    }
+
+    input[type="email"] {
+      flex: 1;
+      min-width: 0;
+      background: none;
+      border: 0;
+      outline: none;
+      font-family: inherit;
+      font-size: 18px;
+      color: #111;
+      padding: 12px 0;
+    }
+
+    button {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      white-space: nowrap;
+      padding: 12px 0 12px 18px;
+    }
+
+    .capture-error {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: #c0392b;
+      margin-top: 12px;
+    }
+
+    .thanks {
+      margin: 48px 0 0;
+      max-width: 520px;
+      border-top: 1px solid #111;
+      padding-top: 22px;
+    }
+    .thanks-title { font-size: 19px; font-weight: 500; }
+    .thanks-sub {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: #8a8a8a;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid #111;
+      padding: 22px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .wordmark { font-size: 16px; font-weight: 700; letter-spacing: -0.03em; }
+    nav {
+      display: flex;
+      gap: 22px;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    nav a { color: #8a8a8a; text-decoration: none; transition: color .15s; }
+    nav a:hover { color: #111; }
+    .copyright {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 11px;
+      color: #b4b1aa;
+      letter-spacing: .02em;
+    }
+
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- top strip -->
+  <div class="strip">
+    <span>Pop &amp; rock, daily</span>
+    <span>Launching Autumn 2026</span>
+  </div>
+
+  <!-- center -->
+  <main>
+    <div class="kicker">Coming soon</div>
+    <h1>popspeed<span class="dot">.</span></h1>
+    <p class="tagline">A new home for pop and rock — interviews, charts, reviews and playlists.</p>
+
+    <!-- email capture -->
+    <div class="capture" id="capture">
+      <div class="capture-label">Be first through the door</div>
+      <form id="signup">
+        <input type="email" id="email" name="email" placeholder="email address" required autocomplete="email">
+        <!-- honeypot: bots fill this, humans don't; Formspree drops it -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+        <input type="hidden" name="_subject" value="Popspeed — new signup">
+        <button type="submit" id="submit-btn">Notify me →</button>
+      </form>
+      <div class="capture-error" id="error" hidden></div>
+    </div>
+
+    <div class="thanks" id="thanks" hidden>
+      <div class="thanks-title">Thanks — you're on the list.</div>
+      <div class="thanks-sub">We'll email you the moment we launch.</div>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="wordmark">popspeed<span class="dot">.</span></div>
+    <nav>
+      <a href="#" rel="noopener">Instagram</a>
+      <a href="#" rel="noopener">Spotify</a>
+    </nav>
+    <div class="copyright">© 2026 Popspeed</div>
+  </footer>
+
+  <script>
+    // 1) Sign up at formspree.io, create a form, copy its endpoint.
+    // 2) Paste it here. Format: https://formspree.io/f/xbdvkwvd
+    // While this stays at the placeholder, the form shows an error instead of
+    // pretending to subscribe.
+    const FORM_ENDPOINT = "https://formspree.io/f/xbdvkwvd";
+
+    const form = document.getElementById('signup');
+    const capture = document.getElementById('capture');
+    const thanks = document.getElementById('thanks');
+    const errorBox = document.getElementById('error');
+    const btn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errorBox.hidden = true;
+
+      if (FORM_ENDPOINT.includes('YOUR_FORM_ID')) {
+        errorBox.textContent = 'Signup endpoint not configured yet.';
+        errorBox.hidden = false;
+        return;
+      }
+
+      btn.disabled = true;
+      const original = btn.textContent;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          capture.hidden = true;
+          thanks.hidden = false;
+        } else {
+          const data = await res.json().catch(() => ({}));
+          errorBox.textContent =
+            (data.errors && data.errors.map(x => x.message).join(', ')) ||
+            'Something went wrong. Please try again.';
+          errorBox.hidden = false;
+          btn.disabled = false;
+          btn.textContent = original;
+        }
+      } catch (err) {
+        errorBox.textContent = 'Network error. Please try again.';
+        errorBox.hidden = false;
+        btn.disabled = false;
+        btn.textContent = original;
+      }
+    });
+  </script>
+</body>
+</html>
